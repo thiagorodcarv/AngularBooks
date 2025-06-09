@@ -1,0 +1,14 @@
+<mat-card class="mat-elevation-z4">
+  <mat-card-title color="primary">Add Genrer</mat-card-title>
+  <mat-card-content>
+    <form (ngSubmit)="onSubmit()">
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Genrer Name</mat-label>
+        <input matInput [(ngModel)]="genrer.name" name="name" required />
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" type="submit">Save</button>
+      <button mat-button routerLink="/genrers">Cancel</button>
+    </form>
+  </mat-card-content>
+</mat-card>

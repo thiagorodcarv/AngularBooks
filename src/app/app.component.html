@@ -1,0 +1,24 @@
+<nav mat-tab-nav-bar>
+  <a mat-tab-link
+     routerLink="/books"
+     routerLinkActive #rlaBooks="routerLinkActive"
+     [active]="rlaBooks.isActive">
+    Books
+  </a>
+
+  <a mat-tab-link
+     routerLink="/authors"
+     routerLinkActive #rlaAuthors="routerLinkActive"
+     [active]="rlaAuthors.isActive">
+    Authors
+  </a>
+
+  <a mat-tab-link
+     routerLink="/genrers"
+     routerLinkActive #rlaGenres="routerLinkActive"
+     [active]="rlaGenres.isActive">
+    Genres
+  </a>
+</nav>
+
+<router-outlet></router-outlet>

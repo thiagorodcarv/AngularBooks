@@ -1,0 +1,40 @@
+<a mat-raised-button color="primary" routerLink="/books/new">Add Book</a>
+<table mat-table [dataSource]="books" class="mat-elevation-z8">
+
+  <!-- Title Column -->
+  <ng-container matColumnDef="title">
+    <th mat-header-cell *matHeaderCellDef> Title </th>
+    <td mat-cell *matCellDef="let book"> {{ book.title }} </td>
+  </ng-container>
+
+  <!-- Author Column -->
+  <ng-container matColumnDef="author">
+    <th mat-header-cell *matHeaderCellDef> Author </th>
+    <td mat-cell *matCellDef="let book"> {{ book.author }} </td>
+  </ng-container>
+
+  <!-- Genrer Column -->
+  <ng-container matColumnDef="genrer">
+    <th mat-header-cell *matHeaderCellDef> Genre </th>
+    <td mat-cell *matCellDef="let book"> {{ book.genrer }} </td>
+  </ng-container>
+
+  <!-- Actions Column -->
+  <ng-container matColumnDef="actions">
+    <th mat-header-cell *matHeaderCellDef> Actions </th>
+    <td mat-cell *matCellDef="let book">
+      <button mat-button color="primary" [routerLink]="['/books', book.id]">Details</button>
+      <button mat-button color="warn" (click)="deleteBook(book.id)">Delete</button>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+  <tr mat-row *matRowDef="let row; columns: columnsToDisplay;"></tr>
+</table>
+
+<!-- Paginação simples (manual) -->
+<div style="margin-top: 16px;">
+  <button mat-button (click)="prevPage()" [disabled]="page === 1">Previous</button>
+  <span>Page {{ page }}</span>
+  <button mat-button (click)="nextPage()" [disabled]="page * pageSize >= totalItems">Next</button>
+</div> 

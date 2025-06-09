@@ -1,0 +1,1 @@
+export interface Genrer { id: number; name: string; }
